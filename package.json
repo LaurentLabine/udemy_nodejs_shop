@@ -1,7 +1,7 @@
 {
-  "name": "udemy_nodejs_assignment3_navigation",
+  "name": "udemy_nodejs_assignment4_templatingengines",
   "version": "1.0.0",
-  "description": "NodeJS Complete course assignment 3 - Navigation",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation.git"
+    "url": "git+https://github.com/LaurentLabine/udemy_nodejs_assignment4_TemplatingEngines.git"
   },
-  "author": "",
+  "author": "Laurent Labine",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation/issues"
+    "url": "https://github.com/LaurentLabine/udemy_nodejs_assignment4_TemplatingEngines/issues"
   },
-  "homepage": "https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation#readme",
+  "homepage": "https://github.com/LaurentLabine/udemy_nodejs_assignment4_TemplatingEngines#readme",
   "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "pug": "^3.0.2"
   }
 }

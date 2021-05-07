@@ -1,17 +1,25 @@
-const express = require("express")
-const path = require("path")
-const userRouter = require("./routes/users")
-const adminRouter = require("./routes/admin")
-const app = express()
-const PORT = process.env.PORT || 5000
+const express = require('express')
+const adminData = require('./routes/admin')
+const userRoutes = require('./routes/users')
+const path = require('path')
 
-app.use(userRouter)
-app.use(adminRouter)
+const app = express();
+const port = 8080;
+
+app.set('views', './views')
+app.set('view engine', 'pug')
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()) // To parse the incoming requests with JSON payloads
+
+app.use(adminData.routes)
+app.use(userRoutes)
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use((req, res) => {
+app.get((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 })
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
+})

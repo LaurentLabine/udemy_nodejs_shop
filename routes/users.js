@@ -1,12 +1,14 @@
 const express = require('express')
-const rootDir = require('../util/path')
 const path = require('path')
 
-const userRouter = express.Router();
+const router = express.Router()
+const rootDir = require('../util/path')
+const adminData = require('./admin')
 
-userRouter.get('/users', (req, res) => {
-  console.log('users route')
-  res.sendFile(path.join(rootDir, 'views', 'users.html'))
+router.get('/users', (req, res) => {
+  console.log("Here")
+  console.log(adminData.users)
+  res.render('users', { users: adminData.users })
 })
 
-module.exports = userRouter
+module.exports = router

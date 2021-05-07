@@ -1,12 +1,21 @@
-const express = require("express")
-const path = require("path")
-
 const rootDir = require('../util/path')
-const adminRouter = express.Router()
+const express = require('express')
+const router = express.Router()
+const path = require('path')
+const users = []
 
-adminRouter.get('/', (req, res) => {
-  console.log("admin route works!")
-  res.sendFile(path.join(rootDir, 'views', 'homepage.html'))
+router.get('/', (req, res) => {
+  console.log("You made it to admin route get!")
+  console.log(path.join(rootDir, 'views', 'homepage.pug'))
+  res.render('homepage');
 })
 
-module.exports = adminRouter
+router.post('/', (req, res) => {
+  users.push({ username: req.body.username })
+  console.log("Pushed!")
+  console.log(users)
+  res.render('homepage', { users: users });
+})
+
+exports.routes = router
+exports.users = users
