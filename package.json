@@ -1,7 +1,7 @@
 {
-  "name": "udemy_nodejs_assignment2_expressjs",
+  "name": "udemy_nodejs_assignment3_navigation",
   "version": "1.0.0",
-  "description": "express js practice",
+  "description": "NodeJS Complete course assignment 3 - Navigation",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LaurentLabine/udemy_nodejs_assignment2_Expressjs.git"
+    "url": "git+https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation.git"
   },
-  "author": "Laurent Labine",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LaurentLabine/udemy_nodejs_assignment2_Expressjs/issues"
+    "url": "https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation/issues"
   },
-  "homepage": "https://github.com/LaurentLabine/udemy_nodejs_assignment2_Expressjs#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  },
+  "homepage": "https://github.com/LaurentLabine/udemy_nodejs_assignment3_Navigation#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
