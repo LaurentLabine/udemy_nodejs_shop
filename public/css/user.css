@@ -1,0 +1,25 @@
+.user-form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+}
+
+.user-item {
+  width: 20rem;
+  max-width: 95%;
+}
+
+.user__title {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.user__price {
+  text-align: center;
+  color: #4d4d4d;
+  margin-bottom: 0.5rem;
+}
+
+.user__description {
+  text-align: center;
+}

@@ -4,17 +4,15 @@ const router = express.Router()
 const path = require('path')
 const users = []
 
-router.get('/', (req, res) => {
-  console.log("You made it to admin route get!")
-  console.log(path.join(rootDir, 'views', 'homepage.pug'))
-  res.render('homepage');
+router.get('/add-user', (req, res) => {
+  res.render('add-user', { pateTitle: 'Add user', path: '/admin/add-user' });
 })
 
-router.post('/', (req, res) => {
+router.post('/add-user', (req, res) => {
+  console.log('Admin add user reached')
   users.push({ username: req.body.username })
-  console.log("Pushed!")
   console.log(users)
-  res.render('homepage', { users: users });
+  res.redirect('/')
 })
 
 exports.routes = router
