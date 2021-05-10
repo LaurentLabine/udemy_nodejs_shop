@@ -1,7 +1,8 @@
-const express = require('express')
-const adminData = require('./routes/admin')
-const shopRoutes = require('./routes/shop')
-const path = require('path')
+const path = require('path');
+
+const express = require('express');
+
+const errorController = require('./controllers/error');
 
 const app = express();
 const port = 8080;
@@ -9,17 +10,17 @@ const port = 8080;
 app.set('views', './views')
 app.set('view engine', 'pug')
 
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json()) // To parse the incoming requests with JSON payloads
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminData.routes)
-app.use(shopRoutes)
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-app.use((req, res) => {
-  res.status(404);
-  res.render(path.join(__dirname, 'views', '404'), { pageTitle: 'Page Not Found' })
-})
+app.use(errorController.get404);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

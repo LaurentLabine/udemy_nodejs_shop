@@ -22,9 +22,10 @@ exports.getProduct = (req, res) => {
   })
 }
 
-exports.getIndex = (req, res) => {
+exports.getInventory = (req, res) => {
   Product.fetchAll(products => {
-    res.render('shop/index', {
+    // console.log(JSON.stringify(products))
+    res.render('shop/homepage', {
       prods: products,
       pageTitle: 'Shop',
       path: '/'
