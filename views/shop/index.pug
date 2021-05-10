@@ -1,0 +1,13 @@
+extends ../layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/user.css")
+
+block content
+    main
+        form.user-form(action="/admin/add-user", method="POST")
+            .form-control
+                label(for="username") Username
+                input(type="text", name="username")#username
+            button.btn(type="submit") Add User

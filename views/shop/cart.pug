@@ -1,0 +1,37 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/forms.css")
+    link(rel="stylesheet", href="/css/user.css")
+
+block content
+
+
+    main
+        form.user-form(action="/admin/add-user", method="POST")
+            .form-control
+                label(for="username") Username
+                input(type="text", name="username")#username
+            button.btn(type="submit") Add User
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <% if (products.length > 0) { %>
+                <ul>
+                    <% products.forEach(p => { %>
+                        <li>
+                            <p><%= p.productData.title %> (<%= p.qty %>)</p>
+                            <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p.productData.id %>" name="productId">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>
