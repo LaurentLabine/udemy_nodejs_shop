@@ -1,6 +1,6 @@
 const express = require('express')
 const adminData = require('./routes/admin')
-const userRoutes = require('./routes/users')
+const shopRoutes = require('./routes/shop')
 const path = require('path')
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json()) // To parse the incoming requests with JSON payloads
 
 app.use('/admin', adminData.routes)
-app.use(userRoutes)
+app.use(shopRoutes)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((req, res) => {
