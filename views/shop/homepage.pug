@@ -3,11 +3,24 @@ extends ../layouts/main-layout.pug
 block styles
     link(rel="stylesheet", href="/css/forms.css")
     link(rel="stylesheet", href="/css/user.css")
+    link(rel="stylesheet", href="/css/main.css")
 
 block content
     main
-        form.user-form(action="/admin/add-user", method="POST")
-            .form-control
-                label(for="username") Username
-                input(type="text", name="username")#username
-            button.btn(type="submit") Add User
+        if prods.length > 0
+            div.grid
+                each product in prods
+                    article.card
+                        header.card__header
+                            h1.product__title #{product.title}
+                        div.card__image
+                            img(src=product.imageUrl,
+                                alt=product.title)
+                        div.card__content
+                            h2.product__price #{product.price}
+                            p.product__description #{product.description}
+                        div.card__actions
+                            include ../includes/add-to-cart.pug
+                            //- <%- include('../includes/add-to-cart.ejs', {product: product})
+        else
+            h1 No Products Found!
